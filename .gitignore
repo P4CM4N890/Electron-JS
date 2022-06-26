@@ -42,6 +42,10 @@ build/Release
 node_modules/
 jspm_packages/
 
+#Directorios
+
+App01-Intro/app01-intro-win32-x64
+
 # Snowpack dependency directory (https://snowpack.dev/)
 web_modules/
 

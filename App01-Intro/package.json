@@ -1,0 +1,28 @@
+{
+  "name": "app01-intro",
+  "version": "1.0.0",
+  "description": "Aplicacion de Escritorio de ElectronJS",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/P4CM4N890/Electron-JS.git"
+  },
+  "keywords": [
+    "Electron",
+    "Escritorio",
+    "Node",
+    "js"
+  ],
+  "author": "P4CM4N890",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/P4CM4N890/Electron-JS/issues"
+  },
+  "homepage": "https://github.com/P4CM4N890/Electron-JS#readme",
+  "devDependencies": {
+    "electron": "^19.0.6"
+  }
+}

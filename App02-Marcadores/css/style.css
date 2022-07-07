@@ -1,0 +1,15 @@
+html {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 10px;
+}
+
+a{
+    text-decoration: none;
+}
+.formMarkers{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

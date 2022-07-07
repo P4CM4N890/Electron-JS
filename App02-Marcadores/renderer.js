@@ -1,3 +1,5 @@
+const shell = require('electron'); // To open links in the default browser
+
 class Markers{
     constructor(){
         this.error = document.querySelector('.errorMessage');
@@ -5,7 +7,7 @@ class Markers{
         this.markerURL = document.querySelector('.createMarkerURL');
         this.buttonMarker = document.querySelector('.createButton');
         this.markers = document.querySelector('.markers');
-        this.removeMarkers = document.querySelector('.removerMarkers')
+        this.removeMarkers = document.querySelector('.removeMarkers')
 
         this.parser = new DOMParser();
 
@@ -18,6 +20,10 @@ class Markers{
         });
 
         this.formCreate.addEventListener('submit', this.createMark.bind(this));
+
+        this.removeMarkers.addEventListener('click', this.deleteAll.bind(this));
+
+        this.markers.addEventListener('click', this.openLink.bind(this));
     }
 
     createMark(event) {
@@ -57,24 +63,40 @@ class Markers{
     }
 
     createMarkerHTML(marker) {
-        return `<div class="url"><h3>${marker.title}</h3>
-        <p><a href="${marker.url}">${marker.url}</a></p></div>`;
+        return `<li class="url list-group-item"><h6>${marker.title}</h6><a href="${marker.url}">${marker.url}</a></li>`;
     }
 
     viewMarkers() {
         let markers = this.getMarkers();
         let html = markers.map(this.createMarkerHTML).join('');
 
-        this.error.innerHTML = html;
+        this.markers.innerHTML = `<ul class="list-group">${html}</ul>`;
     }
 
     reportError(error, url) {
+        this.error.classList.remove('visually-hidden');
         this.error.innerHTML = `Ocurrió un error al acceder a ${url} : ${error}`;
 
         setTimeout(() => {
             this.error.innerHTML = null;
+            this.error.classList.add('visually-hidden');
         }, 5000);
+    }
+
+    deleteAll(){
+        localStorage.clear();
+
+        this.markers.innerHTML = '';
+    }
+
+    openLink(event){
+        if(event.target.href){
+            event.preventDefault();
+            shell.shell.openExternal(event.target.href);
+        }
     }
 }
 
-new Markers();
+// View saved bookmarks
+let loadMarkers = new Markers();
+loadMarkers.viewMarkers();

@@ -1,5 +1,7 @@
 const dataBase = require('./js/database.js');
 
+let cont = 0;
+
 class peopleManager {
     constructor() {
         this.formPeople = document.getElementById('formPeople');
@@ -8,6 +10,7 @@ class peopleManager {
         this.lastName = document.getElementById('lastName');
         this.email = document.getElementById('email');
         this.bttonRegister = document.getElementById('bttonRegister');
+        this.number = document.getElementById('number');
         
         this.loadPeople();
         this.addEventListeners();
@@ -29,6 +32,7 @@ class peopleManager {
     }
 
     createHTML(person){
+        cont++;
         return `<tr>
             <td>${person.firstName}</td>
             <td>${person.lastName}</td>
@@ -39,11 +43,18 @@ class peopleManager {
         </tr>`
     }
 
+    createNumber(cont){
+        this.number.innerHTML = `${cont}`;
+    }
+
     loadPeople() {
         dataBase.getPeople((people) => {
             let html = people.map(this.createHTML).join('');
+            console.log(cont);
 
             this.peopleData.innerHTML = html;
+            this.createNumber(cont);
+            cont = 0;
         });
     }
 

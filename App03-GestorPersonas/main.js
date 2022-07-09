@@ -52,6 +52,10 @@ function openWindowAbout() {
         width: 310,
         height: 280,
         resizable: false,
+        webPreferences: {   // To use 'require' anywhere
+            nodeIntegration: true,
+            contextIsolation: false,
+        }
     });
 
     aboutWindow.loadFile('about.html');

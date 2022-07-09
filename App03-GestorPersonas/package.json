@@ -1,0 +1,32 @@
+{
+  "name": "app03-gestorpersonas",
+  "version": "1.0.0",
+  "description": "Gestor de Personas",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/P4CM4N890/Electron-JS.git"
+  },
+  "keywords": [
+    "Gestor",
+    "Personas",
+    "Registro",
+    "App",
+    "Programa"
+  ],
+  "author": "P4CM4N890",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/P4CM4N890/Electron-JS/issues"
+  },
+  "homepage": "https://github.com/P4CM4N890/Electron-JS#readme",
+  "devDependencies": {
+    "electron": "^19.0.8"
+  },
+  "dependencies": {
+    "nedb": "^1.8.0"
+  }
+}
